@@ -38,6 +38,7 @@ env:
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: false
   #UPLOAD_RELEASE: true
+  DOCKER: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -259,8 +260,9 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: Build & Push Docker Image To Dockerhub
+      if: steps.compile.outputs.status == 'success' && env.DOCKER == 'true'
       run: |
-          cd openwrt/bin/targets/$TARGET/$SUBTARGET/
+          cd $GITHUB_WORKSPACE/openwrt/bin/targets/$TARGET/$SUBTARGET/
           docker import $DEVICE-rootfs.tar.gz ${{ secrets.DOCKER_HUB_USERNAME }}/openwrt:rpi3
           docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PWD }}
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/openwrt:rpi3
