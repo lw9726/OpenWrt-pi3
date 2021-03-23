@@ -38,7 +38,7 @@ env:
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: false
   #UPLOAD_RELEASE: true
-  DOCKER: false
+  DOCKER: true
   TZ: Asia/Shanghai
 
 jobs:
