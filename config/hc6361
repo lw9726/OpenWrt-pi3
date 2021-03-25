@@ -2173,7 +2173,7 @@ CONFIG_PACKAGE_luci-lib-nixio_notls=y
 #
 # File Transfer
 #
-CONFIG_PACKAGE_curl=y
+#CONFIG_PACKAGE_curl=y
 
 #
 # Filesystem
