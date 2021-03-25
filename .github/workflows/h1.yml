@@ -117,18 +117,17 @@ jobs:
 	  
     - name: Assemble artifact
       run: |
-          rm -rf ./artifact/
-          mkdir -p ./artifact/
-          find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-          mv .config ./artifact/
+        rm -rf ./artifact/
+        mkdir -p ./artifact/
+        find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+        find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+        mv .config ./artifact/
 
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-          name: OpenWrt firmware
-          path: ./artifact/
-
+        name: OpenWrt firmware
+        path: ./artifact/
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
