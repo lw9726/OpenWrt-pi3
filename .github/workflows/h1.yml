@@ -115,8 +115,8 @@ jobs:
       if: (!cancelled())
       run: df -hT
 	  
-	- name: Assemble artifact
-        run: |
+    - name: Assemble artifact
+      run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
           find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
@@ -124,8 +124,8 @@ jobs:
           mv .config ./artifact/
 
     - name: Upload artifact
-        uses: actions/upload-artifact@master
-        with:
+      uses: actions/upload-artifact@master
+      with:
           name: OpenWrt firmware
           path: ./artifact/
 
