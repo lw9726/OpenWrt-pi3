@@ -17,4 +17,3 @@ sed -i 's/192.168.1.1/10.20.80.100/g' package/base-files/files/bin/config_genera
 #pushd package/lean
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
 #popd
-git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
